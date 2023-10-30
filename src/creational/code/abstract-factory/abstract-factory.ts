@@ -141,8 +141,8 @@ function appCarFactory(factory: CarAbstractFactory) {
  * You could change the Factory as you wish since
  * all of them implement the same behaviour.
  */
-appCarFactory(new HatchbackCarFactory());
-appCarFactory(new SedanCarFactory());
+// appCarFactory(new HatchbackCarFactory());
+// appCarFactory(new SedanCarFactory());
 
 type FactoryType = 'sedan' | 'hatchback';
 /**
@@ -151,12 +151,14 @@ type FactoryType = 'sedan' | 'hatchback';
  * @returns A car factory instance
  */
 function createFactory(type: FactoryType): CarAbstractFactory {
+  // Here we don´t instanciate the classes, we just call them
   const factories = {
     sedan: SedanCarFactory,
     hatchback: HatchbackCarFactory,
   };
 
   const Factory = factories[type];
+  // Here we return a new instance of the factory type
   return new Factory();
 }
 
